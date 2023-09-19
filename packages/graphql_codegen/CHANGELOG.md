@@ -1,3 +1,27 @@
+# 0.13.5
+
+- Run builder before `json_serializable`
+
+# 0.13.4
+
+- Fix poor handling of complex non-null types with defalt values
+
+# 0.13.3
+
+- Support non-null input with a default value.
+
+# 0.13.2
+
+- Support deprecated directive on fields and enum values.
+
+# 0.13.1
+
+- Support introspection queries
+
+# 0.13.0
+
+- Upgrade `gql` version.
+
 # 0.12.2
 
 - Support `include` and `skip` directives on fields (not fragments yet)

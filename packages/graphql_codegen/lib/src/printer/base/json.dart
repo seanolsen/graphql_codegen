@@ -1,7 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
+import 'package:graphql_codegen/src/context/name.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
@@ -163,6 +164,18 @@ Expression printToJsonValue(
     _printToJsonValue(
       context,
       property.type,
+      refer(value),
+      property.path,
+    );
+
+Expression printToJsonValueOnExpression(
+  PrintContext context,
+  ContextProperty property,
+  Expression value,
+) =>
+    _printToJsonValue(
+      context,
+      property.type,
       value,
       property.path,
     );
@@ -170,10 +183,9 @@ Expression printToJsonValue(
 Expression _printToJsonValue(
   PrintContext context,
   TypeNode type,
-  String value,
+  Expression valueRef,
   Name? propertyContext,
 ) {
-  final valueRef = refer(value);
   if (type is ListTypeNode) {
     final mappedAccess = (type.isNonNull
             ? valueRef.property('map')
@@ -186,7 +198,7 @@ Expression _printToJsonValue(
               ..body = _printToJsonValue(
                 context,
                 type.type,
-                'e',
+                refer('e'),
                 propertyContext,
               ).code,
           ).closure

@@ -1,10 +1,29 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 
 typedef DataObjResolver = Expression Function();
+
+TypeNode _typeNodeAsNullable(TypeNode node) {
+  if (!node.isNonNull) {
+    return node;
+  }
+  if (node is ListTypeNode) {
+    return ListTypeNode(
+      type: node.type,
+      isNonNull: false,
+    );
+  }
+  if (node is NamedTypeNode) {
+    return NamedTypeNode(
+      name: node.name,
+      isNonNull: false,
+    );
+  }
+  return node;
+}
 
 Method printEqualityOperator(
   PrintContext c,
@@ -53,7 +72,7 @@ Method printEqualityOperator(
                   ),
                 ],
                 _printPropertyEqualityCheck(
-                  e.type,
+                  e.hasDefaultValue ? _typeNodeAsNullable(e.type) : e.type,
                   localThisName,
                   localOtherName,
                 )
@@ -63,11 +82,7 @@ Method printEqualityOperator(
           literalTrue.returned.statement,
         ])));
 
-Code _printPropertyEqualityCheck(
-  TypeNode type,
-  String self,
-  String other,
-) {
+Code _printPropertyEqualityCheck(TypeNode type, String self, String other) {
   if (type is NamedTypeNode) {
     return Code(
       "if (${self} != ${other}) {return false;}",
@@ -127,7 +142,9 @@ Method printHashCodeMethod(
                         final localProp = context.namePrinter
                             .printLocalPropertyName(property.name);
                         final hash = _printPropertyHash(
-                          property.type,
+                          property.hasDefaultValue
+                              ? _typeNodeAsNullable(property.type)
+                              : property.type,
                           refer(localProp),
                         );
                         if (dataObjectCheckResolver != null &&
@@ -150,7 +167,10 @@ Method printHashCodeMethod(
             ])),
     );
 
-Expression _printPropertyHash(TypeNode type, Expression name) {
+Expression _printPropertyHash(
+  TypeNode type,
+  Expression name,
+) {
   if (type is NamedTypeNode) {
     return name;
   }

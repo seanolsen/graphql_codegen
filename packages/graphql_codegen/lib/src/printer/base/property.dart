@@ -1,9 +1,11 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/src/context/name.dart';
 import 'package:graphql_codegen/src/config/config.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/errors.dart';
+import 'package:graphql_codegen/src/printer/base/deprecation.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 
 Field printClassProperty(
@@ -14,11 +16,18 @@ Field printClassProperty(
     context,
     property,
   );
+  final deprecationReason = extractDeprecatedReason(property.fieldDirectives);
   return Field(
     (b) => b
       ..modifier = FieldModifier.final$
       ..name = context.namePrinter.printPropertyName(property.name)
-      ..type = classPropertyTypeT,
+      ..type = classPropertyTypeT
+      ..annotations = ListBuilder([
+        if (deprecationReason != null)
+          refer('Deprecated').call([
+            literalString(deprecationReason),
+          ])
+      ]),
   );
 }
 
@@ -66,7 +75,7 @@ TypeReference _printListTypeNode(
     typeNode.type,
     propertyContext: propertyContext,
   ));
-  return typeNode.isNonNull ? innerRef : _asNullable(innerRef);
+  return typeNode.isNonNull ? innerRef : asNullable(innerRef);
 }
 
 TypeReference _printNamedTypeNode(
@@ -112,7 +121,7 @@ TypeReference _printNamedTypeNode(
   if (typeNode.isNonNull) {
     return reference;
   }
-  return _asNullable(reference);
+  return asNullable(reference);
 }
 
 TypeReference _printEnumType(
@@ -181,7 +190,7 @@ TypeReference _printScalarType(
   return TypeReference((b) => b..symbol = ref.type);
 }
 
-TypeReference _asNullable(TypeReference reference) => TypeReference(
+TypeReference asNullable(TypeReference reference) => TypeReference(
       (b) => b
         ..isNullable = true
         ..symbol = reference.symbol

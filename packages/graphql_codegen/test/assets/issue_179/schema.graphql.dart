@@ -56974,9 +56974,15 @@ enum Enum$AlertManagementAlertSort {
   SEVERITY_DESC,
   STATUS_ASC,
   STATUS_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -57090,6 +57096,8 @@ Enum$AlertManagementAlertSort fromJson$Enum$AlertManagementAlertSort(
 
 enum Enum$AlertManagementDomainFilter {
   operations,
+  @Deprecated(
+      'Network policies are deprecated and will be removed in GitLab 16.0. Deprecated in 15.0.')
   threat_monitoring,
   $unknown
 }
@@ -57704,7 +57712,11 @@ Enum$CiRunnerSort fromJson$Enum$CiRunnerSort(String value) {
 }
 
 enum Enum$CiRunnerStatus {
+  @Deprecated(
+      'This was renamed. Please use `CiRunner.paused`. Deprecated in 14.6.')
   ACTIVE,
+  @Deprecated(
+      'This was renamed. Please use `CiRunner.paused`. Deprecated in 14.6.')
   PAUSED,
   ONLINE,
   OFFLINE,
@@ -58128,9 +58140,15 @@ enum Enum$ContactSort {
   DESCRIPTION_DESC,
   ORGANIZATION_ASC,
   ORGANIZATION_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -58416,9 +58434,15 @@ Enum$ContainerRepositoryCleanupStatus
 enum Enum$ContainerRepositorySort {
   NAME_ASC,
   NAME_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -59352,9 +59376,13 @@ Enum$EntryType fromJson$Enum$EntryType(String value) {
 }
 
 enum Enum$EpicSort {
+  @Deprecated('Use START_DATE_DESC. Deprecated in 13.11.')
   start_date_desc,
+  @Deprecated('Use START_DATE_ASC. Deprecated in 13.11.')
   start_date_asc,
+  @Deprecated('Use END_DATE_DESC. Deprecated in 13.11.')
   end_date_desc,
+  @Deprecated('Use END_DATE_ASC. Deprecated in 13.11.')
   end_date_asc,
   START_DATE_DESC,
   START_DATE_ASC,
@@ -59917,9 +59945,15 @@ enum Enum$IssueSort {
   LABEL_PRIORITY_DESC,
   MILESTONE_DUE_ASC,
   MILESTONE_DUE_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -60138,7 +60172,16 @@ Enum$IssueStateEvent fromJson$Enum$IssueStateEvent(String value) {
   }
 }
 
-enum Enum$IssueType { ISSUE, INCIDENT, TEST_CASE, REQUIREMENT, TASK, $unknown }
+enum Enum$IssueType {
+  ISSUE,
+  INCIDENT,
+  TEST_CASE,
+  REQUIREMENT,
+  @Deprecated(
+      'This feature is in Alpha. It can be changed or removed at any time. Introduced in 15.2.')
+  TASK,
+  $unknown
+}
 
 String toJson$Enum$IssueType(Enum$IssueType e) {
   switch (e) {
@@ -60221,6 +60264,7 @@ Enum$IterationSort fromJson$Enum$IterationSort(String value) {
 
 enum Enum$IterationState {
   upcoming,
+  @Deprecated('Use current instead. Deprecated in 14.1.')
   started,
   current,
   opened,
@@ -60611,9 +60655,15 @@ enum Enum$MergeRequestSort {
   LABEL_PRIORITY_DESC,
   MILESTONE_DUE_ASC,
   MILESTONE_DUE_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -60833,9 +60883,15 @@ enum Enum$MilestoneSort {
   DUE_DATE_DESC,
   EXPIRED_LAST_DUE_DATE_ASC,
   EXPIRED_LAST_DUE_DATE_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -61145,9 +61201,15 @@ enum Enum$OrganizationSort {
   DESCRIPTION_DESC,
   DEFAULT_RATE_ASC,
   DEFAULT_RATE_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -61532,10 +61594,10 @@ String toJson$Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum(
     case Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum.TEN_PACKAGE_FILES:
       return r'TEN_PACKAGE_FILES';
     case Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum
-        .TWENTY_PACKAGE_FILES:
+          .TWENTY_PACKAGE_FILES:
       return r'TWENTY_PACKAGE_FILES';
     case Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum
-        .THIRTY_PACKAGE_FILES:
+          .THIRTY_PACKAGE_FILES:
       return r'THIRTY_PACKAGE_FILES';
     case Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum.FORTY_PACKAGE_FILES:
       return r'FORTY_PACKAGE_FILES';
@@ -62651,9 +62713,15 @@ Enum$SnippetBlobActionEnum fromJson$Enum$SnippetBlobActionEnum(String value) {
 }
 
 enum Enum$Sort {
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -62798,9 +62866,15 @@ enum Enum$TimeboxReportErrorReason {
   LABEL_PRIORITY_DESC,
   MILESTONE_DUE_ASC,
   MILESTONE_DUE_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -63156,7 +63230,7 @@ String toJson$Enum$UserCalloutFeatureNameEnum(
     case Enum$UserCalloutFeatureNameEnum.THREAT_MONITORING_INFO:
       return r'THREAT_MONITORING_INFO';
     case Enum$UserCalloutFeatureNameEnum
-        .TWO_FACTOR_AUTH_RECOVERY_SETTINGS_CHECK:
+          .TWO_FACTOR_AUTH_RECOVERY_SETTINGS_CHECK:
       return r'TWO_FACTOR_AUTH_RECOVERY_SETTINGS_CHECK';
     case Enum$UserCalloutFeatureNameEnum.WEB_IDE_ALERT_DISMISSED:
       return r'WEB_IDE_ALERT_DISMISSED';
@@ -63187,7 +63261,7 @@ String toJson$Enum$UserCalloutFeatureNameEnum(
     case Enum$UserCalloutFeatureNameEnum.SECURITY_CONFIGURATION_UPGRADE_BANNER:
       return r'SECURITY_CONFIGURATION_UPGRADE_BANNER';
     case Enum$UserCalloutFeatureNameEnum
-        .CLOUD_LICENSING_SUBSCRIPTION_ACTIVATION_BANNER:
+          .CLOUD_LICENSING_SUBSCRIPTION_ACTIVATION_BANNER:
       return r'CLOUD_LICENSING_SUBSCRIPTION_ACTIVATION_BANNER';
     case Enum$UserCalloutFeatureNameEnum.TRIAL_STATUS_REMINDER_D14:
       return r'TRIAL_STATUS_REMINDER_D14';
@@ -63204,24 +63278,24 @@ String toJson$Enum$UserCalloutFeatureNameEnum(
     case Enum$UserCalloutFeatureNameEnum.VERIFICATION_REMINDER:
       return r'VERIFICATION_REMINDER';
     case Enum$UserCalloutFeatureNameEnum
-        .CI_DEPRECATION_WARNING_FOR_TYPES_KEYWORD:
+          .CI_DEPRECATION_WARNING_FOR_TYPES_KEYWORD:
       return r'CI_DEPRECATION_WARNING_FOR_TYPES_KEYWORD';
     case Enum$UserCalloutFeatureNameEnum.SECURITY_TRAINING_FEATURE_PROMOTION:
       return r'SECURITY_TRAINING_FEATURE_PROMOTION';
     case Enum$UserCalloutFeatureNameEnum
-        .STORAGE_ENFORCEMENT_BANNER_FIRST_ENFORCEMENT_THRESHOLD:
+          .STORAGE_ENFORCEMENT_BANNER_FIRST_ENFORCEMENT_THRESHOLD:
       return r'STORAGE_ENFORCEMENT_BANNER_FIRST_ENFORCEMENT_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .STORAGE_ENFORCEMENT_BANNER_SECOND_ENFORCEMENT_THRESHOLD:
+          .STORAGE_ENFORCEMENT_BANNER_SECOND_ENFORCEMENT_THRESHOLD:
       return r'STORAGE_ENFORCEMENT_BANNER_SECOND_ENFORCEMENT_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .STORAGE_ENFORCEMENT_BANNER_THIRD_ENFORCEMENT_THRESHOLD:
+          .STORAGE_ENFORCEMENT_BANNER_THIRD_ENFORCEMENT_THRESHOLD:
       return r'STORAGE_ENFORCEMENT_BANNER_THIRD_ENFORCEMENT_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .STORAGE_ENFORCEMENT_BANNER_FOURTH_ENFORCEMENT_THRESHOLD:
+          .STORAGE_ENFORCEMENT_BANNER_FOURTH_ENFORCEMENT_THRESHOLD:
       return r'STORAGE_ENFORCEMENT_BANNER_FOURTH_ENFORCEMENT_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .PREVIEW_USER_OVER_LIMIT_FREE_PLAN_ALERT:
+          .PREVIEW_USER_OVER_LIMIT_FREE_PLAN_ALERT:
       return r'PREVIEW_USER_OVER_LIMIT_FREE_PLAN_ALERT';
     case Enum$UserCalloutFeatureNameEnum.USER_REACHED_LIMIT_FREE_PLAN_ALERT:
       return r'USER_REACHED_LIMIT_FREE_PLAN_ALERT';
@@ -63232,16 +63306,16 @@ String toJson$Enum$UserCalloutFeatureNameEnum(
     case Enum$UserCalloutFeatureNameEnum.MR_EXPERIENCE_SURVEY:
       return r'MR_EXPERIENCE_SURVEY';
     case Enum$UserCalloutFeatureNameEnum
-        .NAMESPACE_STORAGE_LIMIT_BANNER_INFO_THRESHOLD:
+          .NAMESPACE_STORAGE_LIMIT_BANNER_INFO_THRESHOLD:
       return r'NAMESPACE_STORAGE_LIMIT_BANNER_INFO_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .NAMESPACE_STORAGE_LIMIT_BANNER_WARNING_THRESHOLD:
+          .NAMESPACE_STORAGE_LIMIT_BANNER_WARNING_THRESHOLD:
       return r'NAMESPACE_STORAGE_LIMIT_BANNER_WARNING_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .NAMESPACE_STORAGE_LIMIT_BANNER_ALERT_THRESHOLD:
+          .NAMESPACE_STORAGE_LIMIT_BANNER_ALERT_THRESHOLD:
       return r'NAMESPACE_STORAGE_LIMIT_BANNER_ALERT_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum
-        .NAMESPACE_STORAGE_LIMIT_BANNER_ERROR_THRESHOLD:
+          .NAMESPACE_STORAGE_LIMIT_BANNER_ERROR_THRESHOLD:
       return r'NAMESPACE_STORAGE_LIMIT_BANNER_ERROR_THRESHOLD';
     case Enum$UserCalloutFeatureNameEnum.PROJECT_QUALITY_SUMMARY_FEEDBACK:
       return r'PROJECT_QUALITY_SUMMARY_FEEDBACK';
@@ -63923,9 +63997,15 @@ Enum$WeightWildcardId fromJson$Enum$WeightWildcardId(String value) {
 enum Enum$WorkItemSort {
   TITLE_ASC,
   TITLE_DESC,
+  @Deprecated(
+      'This was renamed. Please use `UPDATED_DESC`. Deprecated in 13.5.')
   updated_desc,
+  @Deprecated('This was renamed. Please use `UPDATED_ASC`. Deprecated in 13.5.')
   updated_asc,
+  @Deprecated(
+      'This was renamed. Please use `CREATED_DESC`. Deprecated in 13.5.')
   created_desc,
+  @Deprecated('This was renamed. Please use `CREATED_ASC`. Deprecated in 13.5.')
   created_asc,
   UPDATED_DESC,
   UPDATED_ASC,
@@ -64086,6 +64166,177 @@ Enum$WorkItemWidgetType fromJson$Enum$WorkItemWidgetType(String value) {
       return Enum$WorkItemWidgetType.START_AND_DUE_DATE;
     default:
       return Enum$WorkItemWidgetType.$unknown;
+  }
+}
+
+enum Enum$__TypeKind {
+  SCALAR,
+  OBJECT,
+  INTERFACE,
+  UNION,
+  ENUM,
+  INPUT_OBJECT,
+  LIST,
+  NON_NULL,
+  $unknown
+}
+
+String toJson$Enum$__TypeKind(Enum$__TypeKind e) {
+  switch (e) {
+    case Enum$__TypeKind.SCALAR:
+      return r'SCALAR';
+    case Enum$__TypeKind.OBJECT:
+      return r'OBJECT';
+    case Enum$__TypeKind.INTERFACE:
+      return r'INTERFACE';
+    case Enum$__TypeKind.UNION:
+      return r'UNION';
+    case Enum$__TypeKind.ENUM:
+      return r'ENUM';
+    case Enum$__TypeKind.INPUT_OBJECT:
+      return r'INPUT_OBJECT';
+    case Enum$__TypeKind.LIST:
+      return r'LIST';
+    case Enum$__TypeKind.NON_NULL:
+      return r'NON_NULL';
+    case Enum$__TypeKind.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$__TypeKind fromJson$Enum$__TypeKind(String value) {
+  switch (value) {
+    case r'SCALAR':
+      return Enum$__TypeKind.SCALAR;
+    case r'OBJECT':
+      return Enum$__TypeKind.OBJECT;
+    case r'INTERFACE':
+      return Enum$__TypeKind.INTERFACE;
+    case r'UNION':
+      return Enum$__TypeKind.UNION;
+    case r'ENUM':
+      return Enum$__TypeKind.ENUM;
+    case r'INPUT_OBJECT':
+      return Enum$__TypeKind.INPUT_OBJECT;
+    case r'LIST':
+      return Enum$__TypeKind.LIST;
+    case r'NON_NULL':
+      return Enum$__TypeKind.NON_NULL;
+    default:
+      return Enum$__TypeKind.$unknown;
+  }
+}
+
+enum Enum$__DirectiveLocation {
+  QUERY,
+  MUTATION,
+  SUBSCRIPTION,
+  FIELD,
+  FRAGMENT_DEFINITION,
+  FRAGMENT_SPREAD,
+  INLINE_FRAGMENT,
+  VARIABLE_DEFINITION,
+  SCHEMA,
+  SCALAR,
+  OBJECT,
+  FIELD_DEFINITION,
+  ARGUMENT_DEFINITION,
+  INTERFACE,
+  UNION,
+  ENUM,
+  ENUM_VALUE,
+  INPUT_OBJECT,
+  INPUT_FIELD_DEFINITION,
+  $unknown
+}
+
+String toJson$Enum$__DirectiveLocation(Enum$__DirectiveLocation e) {
+  switch (e) {
+    case Enum$__DirectiveLocation.QUERY:
+      return r'QUERY';
+    case Enum$__DirectiveLocation.MUTATION:
+      return r'MUTATION';
+    case Enum$__DirectiveLocation.SUBSCRIPTION:
+      return r'SUBSCRIPTION';
+    case Enum$__DirectiveLocation.FIELD:
+      return r'FIELD';
+    case Enum$__DirectiveLocation.FRAGMENT_DEFINITION:
+      return r'FRAGMENT_DEFINITION';
+    case Enum$__DirectiveLocation.FRAGMENT_SPREAD:
+      return r'FRAGMENT_SPREAD';
+    case Enum$__DirectiveLocation.INLINE_FRAGMENT:
+      return r'INLINE_FRAGMENT';
+    case Enum$__DirectiveLocation.VARIABLE_DEFINITION:
+      return r'VARIABLE_DEFINITION';
+    case Enum$__DirectiveLocation.SCHEMA:
+      return r'SCHEMA';
+    case Enum$__DirectiveLocation.SCALAR:
+      return r'SCALAR';
+    case Enum$__DirectiveLocation.OBJECT:
+      return r'OBJECT';
+    case Enum$__DirectiveLocation.FIELD_DEFINITION:
+      return r'FIELD_DEFINITION';
+    case Enum$__DirectiveLocation.ARGUMENT_DEFINITION:
+      return r'ARGUMENT_DEFINITION';
+    case Enum$__DirectiveLocation.INTERFACE:
+      return r'INTERFACE';
+    case Enum$__DirectiveLocation.UNION:
+      return r'UNION';
+    case Enum$__DirectiveLocation.ENUM:
+      return r'ENUM';
+    case Enum$__DirectiveLocation.ENUM_VALUE:
+      return r'ENUM_VALUE';
+    case Enum$__DirectiveLocation.INPUT_OBJECT:
+      return r'INPUT_OBJECT';
+    case Enum$__DirectiveLocation.INPUT_FIELD_DEFINITION:
+      return r'INPUT_FIELD_DEFINITION';
+    case Enum$__DirectiveLocation.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
+  switch (value) {
+    case r'QUERY':
+      return Enum$__DirectiveLocation.QUERY;
+    case r'MUTATION':
+      return Enum$__DirectiveLocation.MUTATION;
+    case r'SUBSCRIPTION':
+      return Enum$__DirectiveLocation.SUBSCRIPTION;
+    case r'FIELD':
+      return Enum$__DirectiveLocation.FIELD;
+    case r'FRAGMENT_DEFINITION':
+      return Enum$__DirectiveLocation.FRAGMENT_DEFINITION;
+    case r'FRAGMENT_SPREAD':
+      return Enum$__DirectiveLocation.FRAGMENT_SPREAD;
+    case r'INLINE_FRAGMENT':
+      return Enum$__DirectiveLocation.INLINE_FRAGMENT;
+    case r'VARIABLE_DEFINITION':
+      return Enum$__DirectiveLocation.VARIABLE_DEFINITION;
+    case r'SCHEMA':
+      return Enum$__DirectiveLocation.SCHEMA;
+    case r'SCALAR':
+      return Enum$__DirectiveLocation.SCALAR;
+    case r'OBJECT':
+      return Enum$__DirectiveLocation.OBJECT;
+    case r'FIELD_DEFINITION':
+      return Enum$__DirectiveLocation.FIELD_DEFINITION;
+    case r'ARGUMENT_DEFINITION':
+      return Enum$__DirectiveLocation.ARGUMENT_DEFINITION;
+    case r'INTERFACE':
+      return Enum$__DirectiveLocation.INTERFACE;
+    case r'UNION':
+      return Enum$__DirectiveLocation.UNION;
+    case r'ENUM':
+      return Enum$__DirectiveLocation.ENUM;
+    case r'ENUM_VALUE':
+      return Enum$__DirectiveLocation.ENUM_VALUE;
+    case r'INPUT_OBJECT':
+      return Enum$__DirectiveLocation.INPUT_OBJECT;
+    case r'INPUT_FIELD_DEFINITION':
+      return Enum$__DirectiveLocation.INPUT_FIELD_DEFINITION;
+    default:
+      return Enum$__DirectiveLocation.$unknown;
   }
 }
 
